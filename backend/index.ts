@@ -100,10 +100,3 @@ app.get(
 app.listen(port, () => {
   console.log("Redo på " + port);
 });
-
-// app.listen(8080, () => {
-//   console.log("Redo på http://localhost:8080/");
-// });
-
-// FRÅGOR TILL VANJA:
-// -Hur ska bilder läggas in om public-mappen tas bort vid kommandot i terminalen?
