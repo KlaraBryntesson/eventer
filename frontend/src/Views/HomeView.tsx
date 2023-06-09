@@ -25,11 +25,11 @@ function HomeView() {
 
   return (
     <main>
-      <div className="HomeView-image-div">
+      <ImageDiv>
         <h1>Vad vill du göra ikväll?</h1>
-        <div className="HomeView-desktop-div">
-          <h3 className="HomeView-desktop-h3">Aktivitetskalendern nära dig</h3>
-          <p className="HomeView-desktop-p">
+        <DesktopDiv>
+          <h3>Aktivitetskalendern nära dig</h3>
+          <p>
             Vill du cykla, nätverka eller gå på konsert? Vi samlar alla olika
             evenemang på en och samma plats så att du enkelt kan hitta något som
             passar dig.
@@ -38,10 +38,10 @@ function HomeView() {
           <PrimaryButton>
             <Link to="/eventlist">Upptäck alla event</Link>
           </PrimaryButton>
-        </div>
-      </div>
+        </DesktopDiv>
+      </ImageDiv>
       <div className="main-divs">
-        <div className="HomeView-mobile-div">
+        <MobileDiv>
           <h3>Aktivitetskalendern nära dig</h3>
           <p>
             Vill du cykla, nätverka eller gå på konsert? Vi samlar alla olika
@@ -49,43 +49,45 @@ function HomeView() {
             passar dig.
           </p>
 
-          <div className="HomeView-button-div">
+          <ButtonDiv>
             <PrimaryButton>
               <Link to="/eventlist">Upptäck alla event</Link>
             </PrimaryButton>
 
-            <SecondaryButton><Link to="/login">Logga in</Link></SecondaryButton>
-          </div>
-        </div>
+            <SecondaryButton>
+              <Link to="/login">Logga in</Link>
+            </SecondaryButton>
+          </ButtonDiv>
+        </MobileDiv>
         <div>
           {concerts && concerts !== undefined && (
             <CategoryDivs>
               <h3>Konserter</h3>
-              <div className="HomeView-event-div event-div-museum">
+              <EventDiv>
                 {concerts.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
-              </div>
+              </EventDiv>
             </CategoryDivs>
           )}
           {museums && museums !== undefined && (
             <CategoryDivs>
               <h3>Museum</h3>
-              <div className="HomeView-event-div event-div-museum">
+              <EventDiv>
                 {museums.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
-              </div>
+              </EventDiv>
             </CategoryDivs>
           )}
           {activities && activities !== undefined && (
             <CategoryDivs>
               <h3>Friluftsliv</h3>
-              <div className="HomeView-event-div event-div-museum">
+              <EventDiv>
                 {activities.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
-              </div>
+              </EventDiv>
             </CategoryDivs>
           )}
         </div>
@@ -98,6 +100,122 @@ function HomeView() {
     </main>
   );
 }
+
+const ImageDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 260px;
+  background-image: url("images/danny-howe-bn-D2bCvpik-unsplash.jpg");
+  background-size: contain;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    background-color: #1b1b1bb6;
+  }
+
+  h1 {
+    z-index: 10;
+    width: 70%;
+  }
+
+  @media (min-width: 900px) {
+    flex-direction: column;
+    height: 738px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::after {
+      height: 100%;
+    }
+
+    h1 {
+      align-self: center;
+      width: 80%;
+      z-index: 4;
+    }
+  }
+`;
+
+const DesktopDiv = styled.div`
+  display: none;
+
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 4;
+
+    h3 {
+      margin: 71px 0 24px 0;
+      color: #f1f1f1;
+    }
+
+    p {
+      color: #f1f1f1;
+      width: 70%;
+      text-align: center;
+      margin-bottom: 24px !important;
+    }
+  }
+`;
+
+const ButtonDiv = styled.div`
+  width: 100%;
+  height: 116px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const EventDiv = styled.div`
+  width: 105%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  @media (min-width: 900px) {
+    width: 106%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  @media (min-width: 1300px) {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1400px) {
+    width: 102%;
+    overflow-x: hidden;
+    margin: auto;
+    justify-content: space-between;
+  }
+`;
+
+const MobileDiv = styled.div`
+  p {
+    width: 95%;
+    margin-bottom: 16px !important;
+  }
+
+  @media (min-width: 900px) {
+    display: none;
+  }
+`;
 
 const CategoryDivs = styled.div`
   margin-top: 16px;

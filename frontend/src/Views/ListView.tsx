@@ -277,11 +277,11 @@ function ListView() {
         )}
       </SearchFieldDiv>
       <h3>Aktiviteter just nu</h3>
-      <div className="ListView-grid">
+      <ListDiv>
         {filteredEvents?.map((event) => (
           <BigEventCard key={event.id} eventprop={event} />
         ))}
-      </div>
+      </ListDiv>
     </main>
   );
 }
@@ -398,6 +398,35 @@ const CheckboxDiv = styled.div`
     width: 0;
     height: 0;
     opacity: 0;
+  }
+`;
+
+const ListDiv = styled.div`
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+
+  @media (min-width: 1300px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 1400px) {
+    gap: 48px;
   }
 `;
 

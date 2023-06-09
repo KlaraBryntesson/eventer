@@ -102,7 +102,7 @@ dt {
 }
 
 .secondary-button-nav {
-  background-color: #FFFFFF !important;
+  background-color: #ffffff !important;
   color: $rust !important;
   border: 1px solid $rust !important;
 }
@@ -137,61 +137,8 @@ dt {
   margin-right: 18px !important;
 }
 
-.HomeView-image-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 260px;
-  background-image: url(danny-howe-bn-D2bCvpik-unsplash.jpg);
-  background-size: contain;
-  position: relative;
-}
-
-.HomeView-image-div::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 260px;
-  background-color: #1b1b1bb6;
-}
-
-.HomeView-image-div > h1 {
-  z-index: 10;
-  width: 70%;
-}
-
-.HomeView-mobile-div > p {
-  width: 95%;
-  margin-bottom: 16px !important;
-}
-
-.HomeView-desktop-div {
-  display: none;
-}
-
 .HomeView-desktop-button {
   display: none;
-}
-
-.HomeView-button-div {
-  width: 100%;
-  height: 116px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.HomeView-event-div {
-  width: 105%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
 }
 
 .EventCard-div {
@@ -259,129 +206,13 @@ p {
   height: 146px;
 }
 
-.SearchField-form {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  // padding: 0px 16px;
-  width: 311px;
-  height: 56px;
-  margin: auto;
-}
-
-.SearchField-input {
-  width: 100%;
-  height: 80%;
-  background: $white;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  outline: none;
-  border: none;
-  padding: 5px 5px 5px 40px;
-}
-
 .SearchField-icon {
   position: absolute;
   left: 15px;
 }
 
-.EventView-image-container {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-
-.EventView-image {
-  width: 100%;
-  // aspect-ratio: 1/1;
-  object-fit: contain;
-}
-
-.EventView-gratis-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $black;
-  color: $white;
-  border-radius: 10px 0 0 0;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 31px;
-  width: 93px;
-}
-
-.EventView-h2 {
-  display: none;
-}
-
-.EventView-cost {
-  margin-bottom: 16px !important;
-}
-
-.EventView-divs {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 24px;
-}
-
-.EventView-openhours-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .EventView-grey-p {
   color: #525252 !important;
-}
-
-// .EventView-location-div {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-// }
-
-.EventView-location-image {
-  width: 36px;
-  height: 36px;
-  object-fit: fill;
-  border-radius: 50%;
-  margin-right: 24px;
-}
-
-.EventView-p {
-  margin: 0;
-}
-
-.EventView-category-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.EventView-category {
-  text-transform: uppercase;
-  font-size: 14px !important;
-}
-
-.EventView-cost {
-  margin-left: 20px !important;
-}
-
-.ListView-grid {
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // justify-content: space-around;
 }
 
 .Profile-star-div {
@@ -390,26 +221,7 @@ p {
   align-items: baseline;
 }
 
-@media (min-width: 600px) {
-  .ListView-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-  }
-}
-
-@media (min-width: 680px) {
-  .ListView-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-  }
-}
-
 @media (min-width: 800px) {
-  .ListView-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
-  }
-
   .EventCard-image-div:hover {
     filter: drop-shadow(3px 5px 10px rgba(0, 0, 0, 0.25));
     background: rgba(0, 0, 0, 0.1);
@@ -433,120 +245,14 @@ p {
 }
 
 @media (min-width: 900px) {
-  .HomeView-image-div {
-    flex-direction: column;
-    height: 738px;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .HomeView-image-div::after {
-    height: 100%;
-  }
-
   .HomeView-desktop-button {
     display: flex;
     justify-content: center;
   }
 
-  .HomeView-image-div > h1 {
-    align-self: center;
-    width: 80%;
-    z-index: 4;
-  }
-
-  .HomeView-desktop-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 4;
-  }
-
-  .HomeView-mobile-div {
-    display: none;
-  }
-
-  .HomeView-desktop-h3 {
-    margin: 71px 0 24px 0;
-    color: $white;
-  }
-
-  .HomeView-desktop-p {
-    color: $white;
-    width: 70%;
-    text-align: center;
-    margin-bottom: 24px !important;
-  }
-
-  .HomeView-event-div {
-    width: 106%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-
-  .SearchField-form {
-    width: 996px;
-    height: 59px;
-    margin: 0;
-    margin-right: 32px;
-  }
-
-  .SearchField-input {
-    width: 100%;
-    height: 80%;
-    background: $white;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 37px;
-    outline: none;
-    border: none;
-    padding: 5px 5px 5px 40px;
-  }
-
-  .EventView-image-container {
-    height: 632px;
-  }
-
-  .EventView-gratis-div {
-    width: 185px;
-    height: 64px;
-    border-radius: 10px 10px 0 0;
-    right: 48px;
-  }
-
-  .EvenView-gratis-p {
-    font-size: 24px;
-    font-weight: bold;
-  }
-
   .Bootstrap-star {
     top: 30px;
     right: 30px;
-  }
-
-  .EventView-image {
-    object-fit: cover;
-    height: 100%;
-  }
-
-  .EventView-desktop-div {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .EventView-intro-div {
-    width: 60%;
-    margin-right: 64px;
-  }
-
-  .EventView-h2 {
-    display: block;
-    color: $white;
-    position: absolute;
-    bottom: 48px;
-    left: 48px;
   }
 }
 
@@ -581,38 +287,8 @@ p {
     width: 285px;
   }
 
-  .ListView-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-  }
-
   .main-divs {
     padding: 48px;
-  }
-}
-
-@media (min-width: 1300px) {
-  .HomeView-event-div {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .ListView-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 24px;
-  }
-}
-
-@media (min-width: 1400px) {
-  .HomeView-event-div {
-    width: 102%;
-    overflow-x: hidden;
-    margin: auto;
-    justify-content: space-between;
-  }
-
-  .ListView-grid {
-    gap: 48px;
   }
 }
 

@@ -93,35 +93,31 @@ function EventView() {
     <main>
       {event !== undefined && (
         <div>
-          <div className="EventView-image-container">
-            <img className="EventView-image" src={event.image} alt="bild" />
-            <h2 className="EventView-h2">{event.name}</h2>
+          <ImageDiv>
+            <EventImage src={event.image} alt="bild" />
+            <h2>{event.name}</h2>
             {!isStarClicked ? (
               <Star className="Bootstrap-star" onClick={handleStarClick} />
             ) : (
               <StarFill className="Bootstrap-star" onClick={handleStarClick} />
             )}
             {event.cost === null && (
-              <div className="EventView-gratis-div">
-                <p className="EvenView-gratis-p">Gratis</p>
-              </div>
+              <FreeDiv>
+                <p>Gratis</p>
+              </FreeDiv>
             )}
-          </div>
+          </ImageDiv>
           <div className="main-divs">
-            <div className="EventView-desktop-div">
-              <div className="EventView-intro-div">
+            <DesktopDiv>
+              <IntroDiv>
                 <h3>{event.name}</h3>
                 <p>{event.description}</p>
-              </div>
-              <div className="EventView-info-div">
-                <div className=" EventView-divs">
-                  <img
-                    className="EventView-location-image"
-                    src={event.location_image}
-                    alt="location"
-                  />
+              </IntroDiv>
+              <div>
+                <EventDivs>
+                  <LocationImage src={event.location_image} alt="location" />
                   <div>
-                    <div className="EventView-category-div">
+                    <CategoryDiv>
                       <CategoryPin
                         CategoryColor={
                           event.category === "Konsert"
@@ -130,24 +126,21 @@ function EventView() {
                             ? "#F19075"
                             : "#FDCB08"
                         }
-                        className="EventView-category-button"
                       />
-                      <p className="EventView-p EventView-category">
-                        {event.category}
-                      </p>
-                    </div>
-                    <p className="p1 EventView-p">{event.location}</p>
-                    <p className="EventView-p EventView-grey-p">
+                      <Paragraphs>{event.category}</Paragraphs>
+                    </CategoryDiv>
+                    <Paragraphs className="p1">{event.location}</Paragraphs>
+                    <Paragraphs className="EventView-grey-p">
                       {event.adress}
-                    </p>
+                    </Paragraphs>
                   </div>
-                </div>
+                </EventDivs>
                 {hasOpenHours && (
-                  <div className="EventView-divs">
+                  <EventDivs>
                     <Clock className="Bootstrap-icons Bootstrap-clock" />
 
                     {(currentHours !== "" && (
-                      <div className="EventView-openhours-div">
+                      <OpenhoursDiv>
                         <div>
                           <p className="p1">
                             Idag <strong>•</strong> {currentHours}
@@ -168,14 +161,14 @@ function EventView() {
                           }}
                           onClick={handleClick}
                         />
-                      </div>
+                      </OpenhoursDiv>
                     )) ||
                       (event.date !== null && (
                         <div>
                           <p className="p1">{event.date}</p>
                         </div>
                       ))}
-                  </div>
+                  </EventDivs>
                 )}
                 {showAllDates && (
                   <div>
@@ -222,9 +215,9 @@ function EventView() {
                   </div>
                 )}
                 {event.cost !== null && (
-                  <div className="EventView-divs">
-                    <p className="p1 EventView-cost">Pris: {event.cost}</p>
-                  </div>
+                  <EventDivs>
+                    <CostP className="p1">Pris: {event.cost}</CostP>
+                  </EventDivs>
                 )}
                 {event.link !== null && (
                   <PrimaryButton>
@@ -234,13 +227,113 @@ function EventView() {
                   </PrimaryButton>
                 )}
               </div>
-            </div>
+            </DesktopDiv>
           </div>
         </div>
       )}
     </main>
   );
 }
+
+const ImageDiv = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+
+  h2 {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    height: 632px;
+
+    h2 {
+      display: block;
+      color: #f1f1f1;
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+    }
+  }
+`;
+
+const EventImage = styled.img`
+  width: 100%;
+  object-fit: contain;
+
+  @media (min-width: 900px) {
+    object-fit: cover;
+    height: 100%;
+  }
+`;
+
+const DesktopDiv = styled.div`
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+const IntroDiv = styled.div`
+  @media (min-width: 900px) {
+    width: 60%;
+    margin-right: 64px;
+  }
+`;
+
+const FreeDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b1b1b;
+  color: #f1f1f1;
+  border-radius: 10px 0 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 31px;
+  width: 93px;
+
+  @media (min-width: 900px) {
+    width: 185px;
+    height: 64px;
+    border-radius: 10px 10px 0 0;
+    right: 48px;
+
+    p {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+`;
+
+const EventDivs = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 24px;
+`;
+
+const Paragraphs = styled.p`
+  margin: 0;
+`;
+
+const CostP = styled.p`
+  margin-left: 20px !important;
+  margin-bottom: 16px !important;
+`;
+
+const CategoryDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p {
+    text-transform: uppercase;
+    font-size: 14px !important;
+  }
+`;
 
 const CategoryPin = styled.span<MyComponentProps>`
   display: inline-block;
@@ -249,6 +342,22 @@ const CategoryPin = styled.span<MyComponentProps>`
   background-color: ${(props) => props.CategoryColor};
   border-radius: 50%;
   margin-right: 8px;
+`;
+
+const LocationImage = styled.img`
+  width: 36px;
+  height: 36px;
+  object-fit: fill;
+  border-radius: 50%;
+  margin-right: 24px;
+`;
+
+const OpenhoursDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 const ListDiv = styled.div`
